@@ -5,7 +5,7 @@
 
 | Version | Status | Submitted | Reviewed by | Notes |
 |---|---|---|---|---|
-| 0.1.0 | Pending review | 2026-10-16 |  | Read only, sends nothing to the game server. Writes your own character's progress to a local file. |
+| 0.1.1 | Pending review | 2026-10-16 |  | Read only, sends nothing to the game server. Writes your own character's progress to a local file. |
 
 **Author:** Spongeh. **Program:** Ashita v4. **Type:** read only, no display, no automation. It reads your own character's job levels, nation rank, key items, and quest and mission logs, all of which the client already has, and writes them to a JSON file on your PC. It never sends packets, never acts in game, and never goes online. A separate uploader script, run outside the game, sends that file to the Farplane linkshell site.
 <!-- /staff-approval -->
@@ -19,7 +19,7 @@ Keeps your progress on the **Farplane linkshell portal** ([farplane.org/portal](
 1. Copy the `farplanesync` folder into `Ashita\addons\`.
 2. In game, run `/addon load farplanesync`. To load it every time, add that line to your Ashita script.
 3. On the portal, go to **My progress > In-game sync** and click **Create key**.
-4. In game, run `/fps upload`, or double-click `tools\uploader.bat`. A console window opens. Paste your key the first time it asks.
+4. In game, run `/fpsync upload`, or double-click `tools\uploader.bat`. A console window opens. Paste your key the first time it asks.
 
 Leave the uploader window open while you play, and close it to stop. Without it running, nothing leaves your PC.
 
@@ -27,9 +27,9 @@ Leave the uploader window open while you play, and close it to stop. Without it 
 
 | Command | What it does |
 |---|---|
-| `/fps` | Shows whether the quest and mission logs have arrived, and the last file written |
-| `/fps write` | Writes the file now |
-| `/fps upload` | Opens the uploader window (outside the game) |
+| `/fpsync` | Shows whether the quest and mission logs have arrived, and the last file written |
+| `/fpsync write` | Writes the file now |
+| `/fpsync upload` | Opens the uploader window (outside the game) |
 
 The server sends the quest and mission logs at login and when you zone. If you load the addon mid-session, zone once. The logs are saved per character, so later sessions keep them.
 
@@ -67,7 +67,7 @@ Packet layouts follow LandSandBoat / PhoenixXI `src/map/packets/s2c/0x056_missio
   "quests": { "current": { "3": [130] }, "completed": { "3": [128, 129] } },
   "missions": { "nation": 2, "nation_current": 23, "zilart_current": 26, "cop_current": 358,
                 "toau_current": 4, "zilart_completed": [0, 4, 6], "toau_completed": [0, 1, 2, 3] },
-  "addon": "farplanesync", "version": "0.1.0", "written_at": 1790000000
+  "addon": "farplanesync", "version": "0.1.1", "written_at": 1790000000
 }
 ```
 

@@ -9,7 +9,7 @@
     for it the first time and saves it in tools\.key next to this script. The key only lets the
     holder update characters linked to your Discord account; revoke it in the portal any time.
 
-    Start it with uploader.bat (double-click, or /fps upload in game). Close its window to stop.
+    Start it with uploader.bat (double-click, or /fpsync upload in game). Close its window to stop.
 #>
 param(
     [int]$CheckSeconds = 20,      # how often to look for changed files

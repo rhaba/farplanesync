@@ -14,7 +14,7 @@
 
 addon.name    = 'farplanesync';
 addon.author  = 'Spongeh';
-addon.version = '0.1.0';
+addon.version = '0.1.1';
 addon.desc    = 'Writes your job levels, key items, quests and missions to a file for the Farplane portal uploader.';
 addon.link    = 'https://github.com/rhaba/farplanesync';
 
@@ -218,7 +218,7 @@ end);
 
 ashita.events.register('command', 'farplanesync_command', function (e)
     local args = e.command:args();
-    if #args == 0 or (args[1] ~= '/farplanesync' and args[1] ~= '/fps') then return; end
+    if #args == 0 or (args[1] ~= '/farplanesync' and args[1] ~= '/fpsync') then return; end
     e.blocked = true;
     local sub = (args[2] or ''):lower();
     if sub == 'write' then
@@ -237,7 +237,7 @@ ashita.events.register('command', 'farplanesync_command', function (e)
         for _ in pairs(q.completed) do logs = logs + 1; end
         msg(('Quest logs seen: %d/7. Missions: %s. Last file: %s'):format(logs,
             m.nation ~= nil and 'yes' or 'not yet (zone once)', lastFile or 'none yet'));
-        msg('/fps write - write the file now. /fps upload - start the uploader (outside the game).');
+        msg('/fpsync write - write the file now. /fpsync upload - start the uploader (outside the game).');
     end
 end);
 
